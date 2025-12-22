@@ -57,7 +57,7 @@ spec:
                 name: product-service-active
                 port:
                   number: 80
-          - path: /api/v1/products-active
+          - path: /api/v1/products
             pathType: Prefix
             backend:
               service:
@@ -80,7 +80,7 @@ spec:
                 name: analysis-service-active
                 port:
                   number: 80
-          - path: /api/v1/user-event-active
+          - path: /api/v1/user-event
             pathType: Prefix
             backend:
               service:
