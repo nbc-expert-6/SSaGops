@@ -1,0 +1,78 @@
+# ----------------------------
+# macOS
+# ----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon?
+Icon?
+._*
+
+# Thumbnails
+._.DS_Store
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# ----------------------------
+# Node / NPM / Frontend
+# ----------------------------
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ----------------------------
+# Java / Spring / Backend
+# ----------------------------
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.log
+*.out
+*.swp
+*.tmp
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.ipr
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VSCode
+.vscode/
+
+# ----------------------------
+# Kubernetes / ArgoCD
+# ----------------------------
+# 배포/빌드 아티팩트 제외 (Helm template, Kustomize output 등)
+*.tgz
+*.yaml.lock
+*.bak
+*.backup
+*.orig
+
+# ----------------------------
+# OS Temp
+# ----------------------------
+*.swp
+*.swo
+*.tmp
+*.temp
