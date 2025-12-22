@@ -1,18 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ssag-root
+  name: recommend
   namespace: argocd
 spec:
   project: default
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    namespace: default
   source:
     repoURL: 'https://github.com/nbc-expert-6/SSaGops.git'
-    path: dev/apps
+    path: dev/recommend
     targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
