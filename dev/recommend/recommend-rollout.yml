@@ -1,34 +1,34 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: product-rollout
+  name: recommend-rollout
   namespace: default
 spec:
   replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: product
+      app: recommend
   template:
     metadata:
       labels:
-        app: product
+        app: recommend
     spec:
       containers:
-        - name: product-service-container
-          image: #ECr 주소
+        - name: recommend-service-container
+          image: 139144002104.dkr.ecr.ap-northeast-2.amazonaws.com/recommend-service:1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:
             - configMapRef:
-                name: product-service-config
+                name: recommend-service-config
             - secretRef:
-                name: product-service-secret
+                name: recommend-service-secret
   strategy:
     blueGreen:
       #activeService는 현재 운영중인 Blue 서비스
-      activeService: product-service-active
+      activeService: recommend-service-active
 
       #previewService는 새롭게 배포될 Green 서비스
-      previewService: product-service-preview
+      previewService: recommend-service-preview
