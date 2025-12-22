@@ -4,10 +4,6 @@ metadata:
   name: ssag-root
 spec:
   project: default
-  source:
-    repoURL: 'https://github.com/nbc-expert-6/SSaGops.git'
-    path: 'dev'
-    targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
@@ -15,9 +11,16 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  # 하위 앱 정의
   sources:
-    - path: analysis
-    - path: product
-    - path: recommend
-    - path: ingress
+    - repoURL: 'https://github.com/nbc-expert-6/SSaGops.git'
+      path: dev/analysis
+      targetRevision: HEAD
+    - repoURL: 'https://github.com/nbc-expert-6/SSaGops.git'
+      path: dev/product
+      targetRevision: HEAD
+    - repoURL: 'https://github.com/nbc-expert-6/SSaGops.git'
+      path: dev/recommend
+      targetRevision: HEAD
+    - repoURL: 'https://github.com/nbc-expert-6/SSaGops.git'
+      path: dev/ingress
+      targetRevision: HEAD
