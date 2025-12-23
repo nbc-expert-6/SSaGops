@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
         - name: analysis-service-container
-          image: 139144002104.dkr.ecr.ap-northeast-2.amazonaws.com/analysis-service:1.0.0-ad.1
+          image: 139144002104.dkr.ecr.ap-northeast-2.amazonaws.com/analysis-service:1.0.0-ad.2
           imagePullPolicy: Always
           ports:
-            - containerPort: 8082
+            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: analysis-service-config
