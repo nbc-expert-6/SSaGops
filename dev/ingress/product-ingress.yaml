@@ -1,20 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: api-ingress
+  name: product-ingress
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/group.name: ssag-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
-    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health
+    alb.ingress.kubernetes.io/healthcheck-path: /products/actuator/health
     alb.ingress.kubernetes.io/subnets: "subnet-0b6c28e28fa038b90,subnet-03b783ec16f9ba2ec,subnet-00a702231116e6a23"
 spec:
   rules:
     - http:
         paths:
-          # product-service
           - path: /api/v1/main-products
             pathType: Prefix
             backend:
@@ -62,37 +61,5 @@ spec:
             backend:
               service:
                 name: product-service-active
-                port:
-                  number: 80
-
-          # analysis-service
-          - path: /api/v1/etl
-            pathType: Prefix
-            backend:
-              service:
-                name: analysis-service-active
-                port:
-                  number: 80
-          - path: /api/v1/user-event
-            pathType: Prefix
-            backend:
-              service:
-                name: analysis-service-active
-                port:
-                  number: 80
-          - path: /api/v1/session-cluster
-            pathType: Prefix
-            backend:
-              service:
-                name: analysis-service-active
-                port:
-                  number: 80
-
-          # recommend-service
-          - path: /api/v1/recommendation
-            pathType: Prefix
-            backend:
-              service:
-                name: recommend-service-active
                 port:
                   number: 80
