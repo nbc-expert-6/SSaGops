@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
         - name: recommend-service-container
-          image: 139144002104.dkr.ecr.ap-northeast-2.amazonaws.com/recommend-service:1.0.0-rd.1
+          image: 139144002104.dkr.ecr.ap-northeast-2.amazonaws.com/recommend-service:1.0.0-rd.2
           imagePullPolicy: Always
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: recommend-service-config
